@@ -10,7 +10,7 @@ export default function About() {
         transition={{ duration: 0.6 }}
         viewport={{ once: true }}
     >
-        <div className="bg-white shadow-md rounded-2xl p-6">
+        <div className="bg-white/70 backdrop-blur-md shadow-lg rounded-3xl p-8">
             <h2 className="text-3xl font-bold mb-2 text-blue-700 underline decoration-blue-300">About Me</h2>
             <p className="text-lg text-gray-700 leading-relaxed">
                 I'm a Data Engineer and Data Scientist with a passion for building data pipelines, working with cloud infrastructure, and solving business problems through analytics. I specialize in Python, SQL, and cloud platforms like AWS and GCP.

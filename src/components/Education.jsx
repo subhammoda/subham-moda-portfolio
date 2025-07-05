@@ -10,7 +10,7 @@ export default function Education() {
       transition={{ duration: 0.6, delay: 0.1 }}
       viewport={{ once: true }}
     >
-      <div className="bg-white shadow-md rounded-2xl p-6">
+      <div className="bg-white/70 backdrop-blur-md shadow-lg rounded-3xl p-8">
         <h2 className="text-3xl font-bold mb-4 text-indigo-700 underline decoration-indigo-300">Education</h2>
         <ul className="space-y-2 text-gray-700 text-lg tracking-wide">
           <li>
