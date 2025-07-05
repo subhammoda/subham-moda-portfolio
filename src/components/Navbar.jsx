@@ -10,7 +10,7 @@ export default function Navbar() {
             <a
               key={s}
               href={`#${s.toLowerCase().replace(/ /g, "")}`}
-              className="text-gray-700 hover:text-blue-600 transition"
+              className="text-gray-700 hover:text-blue-600 hover:underline transition-all duration-200 ease-in-out"
             >
               {s}
             </a>
