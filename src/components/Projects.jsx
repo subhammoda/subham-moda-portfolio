@@ -10,7 +10,7 @@ export default function Projects() {
       transition={{ duration: 0.6, delay: 0.3 }}
       viewport={{ once: true }}
     >
-      <div className="bg-white shadow-md rounded-2xl p-6">
+      <div className="bg-white/70 backdrop-blur-md shadow-lg rounded-3xl p-8">
         <h2 className="text-3xl font-bold mb-4 text-purple-700 underline decoration-purple-300">Projects</h2>
         <ul className="space-y-6 text-gray-700 text-lg tracking-wide">
           <li>
