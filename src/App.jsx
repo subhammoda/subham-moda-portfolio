@@ -22,13 +22,15 @@ export default function App() {
       <Navbar />
       <main>
         <Hero />
-        <div className="container">
-          <About />
-          <Education />
-          <Experience />
-          <Projects />
-          <TechStack />
-          <Contact />
+        <div className="about-gradient-wrapper">
+          <div className="container">
+            <About />
+            <Education />
+            <Experience />
+            <Projects />
+            <TechStack />
+            <Contact />
+          </div>
         </div>
       </main>
       <Footer />
