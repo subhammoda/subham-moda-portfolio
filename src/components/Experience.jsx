@@ -6,14 +6,14 @@ export default function Experience() {
     {
       title: 'Data Scientist Intern',
       company: 'ResMed',
-      period: '2023',
+      period: 'June 2023 - Aug 2023',
       location: 'San Diego, CA',
-      description: 'Led the pit crew in extracting structured clinical data using OCR, BERT-NER, and AWS EKS. Achieved 83% accuracy for ICD10/medication extraction, setting new lap records in medical data processing.',
-      technologies: ['OCR', 'BERT-NER', 'AWS EKS', 'Python', 'Machine Learning'],
+      description: 'Built and deployed a clinical information extraction system using OCR and transformer-based NER models. Containerized the pipeline into a RESTful API on AWS EKS, reducing manual processing time for nurses and enabling structured clinical data to be available in real time across teams.',
+      technologies: ['OCR', 'BERT-NER', 'AWS EKS', 'Python', 'Machine Learning', 'NLP'],
       achievements: [
-        '🏁 Set new lap record with 83% accuracy in medical data extraction',
-        '⚡ Implemented BERT-based Named Entity Recognition for clinical data',
-        '🏆 Deployed championship-winning solutions on AWS EKS'
+        '🏁 Extracted ICD10 codes, medication names, dosages, and medical problems from 10K+ unstructured clinical documents using OCR and fine-tuned NER models with domain-specific postprocessing',
+        '⚡ Achieved 83% accuracy in entity extraction by leveraging transformer models and domain-tuned preprocessing logic',
+        '🏆 Enabled near real-time access to structured medical data for analytics and automation teams through API-driven integration'
       ],
       icon: '🏥',
       teamRole: 'Pit Crew Lead'
@@ -21,23 +21,36 @@ export default function Experience() {
     {
       title: 'Data Engineer',
       company: 'Quantiphi Inc',
-      period: '2020–2022',
+      period: 'July 2020 - July 2022',
       location: 'Mumbai, India',
-      description: 'Engineered high-performance data pipelines with BigQuery, Airflow, and Cloud Data Fusion. Created 30+ championship-winning dashboards and profiled 1TB+ SSMS logs with F1-level precision.',
-      technologies: ['BigQuery', 'Apache Airflow', 'Cloud Data Fusion', 'Tableau', 'SQL'],
+      description: 'Designed and deployed scalable data pipelines across GCP using Airflow, BigQuery, and Cloud Data Fusion. Delivered high-impact analytics solutions that powered self-serve dashboards, enabled predictive maintenance, and reduced compute usage across 150+ cross-project workloads.',
+      technologies: ['BigQuery', 'Apache Airflow', 'Cloud Data Fusion', 'Kafka', 'Spark Streaming', 'Looker', 'Tableau', 'SQL', 'CI/CD (Cloud Build)', 'GCP', 'AWS', 'Python'],
       achievements: [
-        '🏆 Built and maintained 30+ podium-finishing data dashboards',
-        '⚡ Processed and analyzed 1TB+ of SSMS logs at record speed',
-        '🏁 Designed championship-caliber ETL pipelines using Google Cloud Platform'
+        '🏆 Optimized Airflow DAGs to reduce ETL runtime from 70-80 mins to under 10 mins, saving ~60 minutes of compute per run and freeing resources for additional workflows',
+        '⚡ Automated secure ingestion of cross-project data with Cloud Data Fusion and BigQuery Authorized Views, replacing manual transfer processes across 150+ datasets', 
+        '🏁 Delivered 30+ Looker/Tableau dashboards across 150+ KPIs by partnering with product, ops, and analytics teams—replacing 200+ monthly ad-hoc pulls with scalable, self-serve insights'
       ],
       icon: '🏎️',
       teamRole: 'Race Engineer'
     }
   ].sort((a, b) => {
-    // Sort by start year (extract first 4 digits)
-    const aYear = parseInt(a.period);
-    const bYear = parseInt(b.period);
-    return aYear - bYear;
+    // Extract year and month from the period string
+    const getYearMonth = (period) => {
+      const match = period.match(/([A-Za-z]{3,9})?\s?(\d{4})/);
+      if (!match) return [0, 0];
+      const monthStr = match[1] || '';
+      const year = parseInt(match[2]);
+      const months = ['Jan','January','Feb','February','Mar','March','Apr','April','May','Jun','June','Jul','July','Aug','August','Sep','Sept','September','Oct','October','Nov','November','Dec','December'];
+      let month = 0;
+      if (monthStr) {
+        month = months.findIndex(m => m.toLowerCase().startsWith(monthStr.toLowerCase().slice(0,3)));
+        month = Math.floor(month / 2); // since both short and long names are present
+      }
+      return [year, month];
+    };
+    const [aYear, aMonth] = getYearMonth(a.period);
+    const [bYear, bMonth] = getYearMonth(b.period);
+    return aYear !== bYear ? aYear - bYear : aMonth - bMonth;
   });
 
   return (
@@ -76,9 +89,6 @@ export default function Experience() {
                     <span className="experience-period">{exp.period}</span>
                     <span className="experience-location">{exp.location}</span>
                   </div>
-                  <div className="experience-role">
-                    <span className="role-badge">{exp.teamRole}</span>
-                  </div>
                 </div>
               </div>
               
@@ -106,12 +116,6 @@ export default function Experience() {
                     ))}
                   </div>
                 </div>
-              </div>
-              
-              <div className="experience-badge">
-                <span className="badge bg-gradient text-white">
-                  {exp.period}
-                </span>
               </div>
             </div>
           </motion.div>
