@@ -24,7 +24,7 @@ export default function Contact() {
     
     // Simulate form submission
     setTimeout(() => {
-      alert('🏁 Thank you for your message! I will get back to you at F1 speed!');
+      alert('🏁 Thank you for your message! I will get back to you!');
       setFormData({ name: '', email: '', subject: '', message: '' });
       setIsSubmitting(false);
     }, 2000);
@@ -34,19 +34,17 @@ export default function Contact() {
     {
       icon: '📧',
       title: 'Team Radio',
-      value: 'subham.moda@example.com',
-      link: 'mailto:subham.moda@example.com'
+      link: 'mailto:subham.moda4@gmail.com'
     },
     {
       icon: '📱',
       title: 'Pit Wall',
-      value: '+1 (555) 123-4567',
-      link: 'tel:+15551234567'
+      link: 'tel:+15513445739'
     },
     {
       icon: '📍',
       title: 'Home Circuit',
-      value: 'San Francisco, CA',
+      value: 'United States',
       link: null
     }
   ];
@@ -54,21 +52,21 @@ export default function Contact() {
   const socialLinks = [
     {
       name: 'LinkedIn',
-      icon: '💼',
-      url: 'https://linkedin.com/in/subham-moda',
+      icon: 'https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/linkedin.svg',
+      url: 'https://linkedin.com/in/subhammoda',
       color: '#0077b5'
     },
     {
       name: 'GitHub',
-      icon: '🐙',
-      url: 'https://github.com/subham-moda',
+      icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg',
+      url: 'https://github.com/subhammoda',
       color: '#333'
     },
     {
       name: 'Twitter',
-      icon: '🐦',
-      url: 'https://twitter.com/subham-moda',
-      color: '#1da1f2'
+      icon: 'https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/x.svg',
+      url: 'https://x.com/modasubham',
+      color: '#1a1a1a'
     }
   ];
 
@@ -84,19 +82,20 @@ export default function Contact() {
         <h2>🏁 Pit Lane Access</h2>
       </motion.div>
 
-      <div className="row">
+      <div className="row" style={{ display: 'flex', alignItems: 'stretch' }}>
         <motion.div
           initial={{ opacity: 0, x: -50 }}
           whileInView={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.8, delay: 0.2 }}
           viewport={{ once: true }}
           className="col-lg-6 mb-4"
+          style={{ display: 'flex' }}
         >
-          <div className="card h-100">
+          <div className="card" style={{ width: '100%', display: 'flex', flexDirection: 'column' }}>
             <h4 className="mb-4">🏎️ Let's Connect</h4>
             <p className="contact-intro mb-4">
               Ready to join the championship team? I'm always interested in new opportunities and collaborations. 
-              Whether you have a question or just want to discuss data engineering at F1 speeds, feel free to reach out!
+              Whether you have a question or just want to discuss data engineering or talk about F1, feel free to reach out!
             </p>
             
             <div className="contact-info">
@@ -114,17 +113,17 @@ export default function Contact() {
                     <h6>{info.title}</h6>
                     {info.link ? (
                       <a href={info.link} className="contact-link">
-                        {info.value}
+                        Click to {info.title === 'Team Radio' ? 'Email' : 'Call'}
                       </a>
                     ) : (
-                      <span>{info.value}</span>
+                      <span className="contact-link">{info.value}</span>
                     )}
                   </div>
                 </motion.div>
               ))}
             </div>
 
-            <div className="social-links mt-4">
+            <div className="social-links" style={{ marginTop: 'auto' }}>
               <h6 className="mb-3">🏆 Follow the Championship</h6>
               <div className="social-icons">
                 {socialLinks.map((social, index) => (
@@ -141,7 +140,7 @@ export default function Contact() {
                     viewport={{ once: true }}
                     whileHover={{ scale: 1.1 }}
                   >
-                    <span className="social-emoji">{social.icon}</span>
+                    <img src={social.icon} alt={social.name + ' logo'} width="20" height="20" style={{marginRight: '0.4rem', verticalAlign: 'middle', filter: 'brightness(0) invert(1)'}} />
                     <span className="social-name">{social.name}</span>
                   </motion.a>
                 ))}
@@ -156,8 +155,9 @@ export default function Contact() {
           transition={{ duration: 0.8, delay: 0.4 }}
           viewport={{ once: true }}
           className="col-lg-6"
+          style={{ display: 'flex' }}
         >
-          <div className="card">
+          <div className="card" style={{ width: '100%', display: 'flex', flexDirection: 'column' }}>
             <h4 className="mb-4">🏁 Send Team Radio</h4>
             <form onSubmit={handleSubmit} className="contact-form">
               <div className="form-group mb-3">
