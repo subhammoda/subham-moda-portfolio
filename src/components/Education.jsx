@@ -7,21 +7,17 @@ export default function Education() {
       degree: 'MS in Data Science',
       institution: 'Stevens Institute of Technology',
       year: '2024',
-      location: 'Hoboken, NJ',
-      description: 'Mastered advanced data science techniques with focus on machine learning, statistical analysis, and big data technologies. Graduated with honors, achieving pole position in academic performance.',
+      location: 'Hoboken, United States',
       gpa: '3.93/4.0',
-      icon: '🏆',
-      achievement: 'Pole Position Graduate'
+      icon: 'https://cdn.brandfetch.io/idFBKpUqsw/w/400/h/400/theme/dark/icon.jpeg?c=1bxid64Mup7aczewSAYMX&t=1751325173379',
     },
     {
       degree: 'BTech in Information Technology',
       institution: 'NMIMS University',
       year: '2020',
-      location: 'Mumbai, India',
-      description: 'Built strong foundation in software engineering, database systems, and web technologies. Completed with distinction, setting lap records in academic excellence.',
+      location: 'Mumbai, India', 
       gpa: '3.5/4.0',
-      icon: '🏁',
-      achievement: 'Fastest Lap Graduate'
+      icon: 'https://cdn.brandfetch.io/idRQ5xiBH6/w/400/h/400/theme/dark/icon.jpeg?c=1bxid64Mup7aczewSAYMX&t=1747800992546',
     }
   ].sort((a, b) => a.year.localeCompare(b.year));
 
@@ -37,7 +33,7 @@ export default function Education() {
         <h2>🏎️ Racing Academy</h2>
       </motion.div>
 
-      <div className="education-timeline-horizontal">
+      <div className="education-timeline-horizontal" style={{ position: 'relative', display: 'flex', flexDirection: 'row', alignItems: 'flex-start' }}>
         <div className="education-timeline-horizontal-line"></div>
         {educationData.map((edu, index) => (
           <motion.div
@@ -47,12 +43,17 @@ export default function Education() {
             transition={{ duration: 0.8, delay: index * 0.2 }}
             viewport={{ once: true }}
             className="education-item-horizontal"
+            style={{ position: 'relative', display: 'flex', flexDirection: 'column', alignItems: 'center' }}
           >
             <div className="education-dot-horizontal"></div>
             <div className="education-card card">
               <div className="education-header">
                 <div className="education-icon">
-                  <span className="icon-emoji">{edu.icon}</span>
+                  {edu.icon.startsWith('http') ? (
+                    <img src={edu.icon} alt={edu.institution + ' logo'} style={{ width: 48, height: 48, borderRadius: '50%' }} />
+                  ) : (
+                    <span className="icon-emoji">{edu.icon}</span>
+                  )}
                 </div>
                 <div className="education-info">
                   <h4 className="education-degree">{edu.degree}</h4>
@@ -62,23 +63,6 @@ export default function Education() {
                     <span className="education-location">{edu.location}</span>
                   </div>
                 </div>
-              </div>
-              
-              <div className="education-content">
-                <p className="education-description">{edu.description}</p>
-                <div className="education-gpa">
-                  <span className="gpa-label">🏁 Qualifying Time:</span>
-                  <span className="gpa-value">{edu.gpa}</span>
-                </div>
-                <div className="education-achievement">
-                  <span className="achievement-badge">{edu.achievement}</span>
-                </div>
-              </div>
-              
-              <div className="education-badge">
-                <span className="badge bg-gradient text-white">
-                  {edu.year}
-                </span>
               </div>
             </div>
           </motion.div>
