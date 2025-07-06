@@ -9,7 +9,7 @@ const allTechSkills = [
   { name: "PostgreSQL", img: "https://raw.githubusercontent.com/devicons/devicon/master/icons/postgresql/postgresql-original.svg" },
   { name: "SQL Server", img: "https://raw.githubusercontent.com/devicons/devicon/master/icons/microsoftsqlserver/microsoftsqlserver-original.svg" },
   { name: "GCP", img: "https://raw.githubusercontent.com/devicons/devicon/master/icons/googlecloud/googlecloud-original.svg" },
-  { name: "AWS", img: "https://upload.wikimedia.org/wikipedia/commons/9/93/Amazon_Web_Services_Logo.svg" },
+  { name: "AWS", img: "https://img.icons8.com/?size=100&id=G0CnLqqcRBXl&format=png&color=FFFFFF" },
   { name: "Azure", img: "https://raw.githubusercontent.com/devicons/devicon/master/icons/azure/azure-original.svg" },
   { name: "Airflow", img: "https://raw.githubusercontent.com/devicons/devicon/master/icons/apacheairflow/apacheairflow-original.svg" },
   { name: "Snowflake", img: "https://www.vectorlogo.zone/logos/snowflake/snowflake-icon.svg" },
