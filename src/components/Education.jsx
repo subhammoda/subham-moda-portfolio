@@ -33,7 +33,7 @@ export default function Education() {
         <h2>🏎️ Racing Academy</h2>
       </motion.div>
 
-      <div className="education-timeline-horizontal" style={{ position: 'relative', display: 'flex', flexDirection: 'row', alignItems: 'flex-start' }}>
+      <div className="education-timeline-horizontal">
         <div className="education-timeline-horizontal-line"></div>
         {educationData.map((edu, index) => (
           <motion.div
@@ -43,7 +43,6 @@ export default function Education() {
             transition={{ duration: 0.8, delay: index * 0.2 }}
             viewport={{ once: true }}
             className="education-item-horizontal"
-            style={{ position: 'relative', display: 'flex', flexDirection: 'column', alignItems: 'center' }}
           >
             <div className="education-dot-horizontal"></div>
             <div className="education-card card">
