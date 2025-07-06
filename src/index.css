@@ -4,21 +4,21 @@
   --card-bg: #ffffff;
   --primary-color: #e10600;
   --secondary-color: #1e1e1e;
-  --accent-color: #ffd700;
+  --accent-color: #FFF200;
   --border-color: #e5e7eb;
   --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
   --shadow-lg: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
   --gradient-primary: linear-gradient(135deg, #e10600 0%, #ff6b35 100%);
   --gradient-secondary: linear-gradient(135deg, #1e1e1e 0%, #333333 100%);
-  --gradient-accent: linear-gradient(135deg, #ffd700 0%, #ffed4e 100%);
+  --gradient-accent: linear-gradient(135deg, #FFF200 0%, #FFF200 100%);
   --f1-red: #e10600;
   --f1-black: #1e1e1e;
-  --f1-gold: #ffd700;
+  --f1-gold: #FFF200;
   --f1-silver: #c0c0c0;
   --f1-blue: #0066cc;
   --f1-green: #00d4aa;
   --f1-orange: #ff6b35;
-  --f1-yellow: #ffed4e;
+  --f1-yellow: #FFF200;
   --f1-purple: #6f2dbd;
   --f1-pink: #ff69b4;
   --f1-cyan: #00d4ff;
@@ -40,12 +40,17 @@ body.dark-mode {
 }
 
 body {
-  background-color: var(--bg-color);
+  background: linear-gradient(135deg, #fff5f5 0%, #ffeaea 20%, #ffd6d6 40%, #e10600 70%, #ff6b35 90%, #ffd700 100%);
   color: var(--text-color);
   font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   line-height: 1.6;
-  transition: background-color 0.3s ease, color 0.3s ease;
+  transition: background 0.3s ease, color 0.3s ease;
   overflow-x: hidden;
+}
+
+body.dark-mode {
+  background: linear-gradient(120deg, #181818 0%, #1e1e1e 40%, #e10600 70%, #ffd700 100%);
+  color: #ffffff;
 }
 
 .app {
@@ -86,6 +91,13 @@ h3 {
 section {
   padding: 5rem 0;
   position: relative;
+  scroll-margin-top: 72px;
+}
+
+@media (max-width: 768px) {
+  section {
+    scroll-margin-top: 56px;
+  }
 }
 
 .section-title {
@@ -254,8 +266,8 @@ section {
 }
 
 .dark-mode .navbar {
-  background: rgba(15, 23, 42, 0.95);
-  border-bottom: 1px solid var(--border-color);
+  background: #E6002B;
+  border-bottom: 1px solid #404040;
 }
 
 .navbar-scrolled {
@@ -339,11 +351,13 @@ section {
   .profile-picture {
     width: 150px;
     height: 150px;
+    border-radius: 32px;
   }
   
   .profile-image-placeholder {
     width: 120px;
     height: 120px;
+    border-radius: 32px;
   }
   
   .profile-initials {
@@ -437,8 +451,12 @@ section {
   border-radius: 4px;
 }
 
-::-webkit-scrollbar-thumb:hover {
-  background: var(--secondary-color);
+::-webkit-scrollbar-thumb:hover, ::-webkit-scrollbar-thumb:active {
+  background: #FFF200;
+}
+
+body.dark-mode ::-webkit-scrollbar-thumb:hover, body.dark-mode ::-webkit-scrollbar-thumb:active {
+  background: #FFF200;
 }
 
 /* Hero Section */
@@ -474,7 +492,19 @@ section {
   height: 100%;
   background: url('https://www.topgear.com/sites/default/files/news-listicle/image/2024/02/d793bfe8-5a9f-48cc-9527-d890c28b99cb.jpg') no-repeat center center;
   background-size: cover;
-  filter: grayscale(50%) brightness(0.6);
+  filter: grayscale(50%) brightness(0.45);
+}
+
+.f1-car-image::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(30, 30, 30, 0.18);
+  pointer-events: none;
+  z-index: 1;
 }
 
 /* Racing Animation */
@@ -907,18 +937,19 @@ section {
 
 .profile-picture {
   position: relative;
-  width: 200px;
-  height: 200px;
+  width: 260px;
+  height: 364px;
+  border-radius: 16px;
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
 .profile-image-placeholder {
-  width: 150px;
-  height: 150px;
+  width: 260px;
+  height: 364px;
+  border-radius: 16px;
   background: var(--gradient-primary);
-  border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -1070,7 +1101,7 @@ section {
 }
 
 .dashboard-title {
-  color: var(--f1-gold);
+  color: #FFF200;
   font-weight: 600;
   font-size: 0.9rem;
 }
@@ -1121,7 +1152,7 @@ section {
 }
 
 .metric-value {
-  color: var(--f1-gold);
+  color: #FFF200;
   font-size: 0.7rem;
   font-weight: 600;
   min-width: 50px;
@@ -1807,7 +1838,7 @@ section {
 }
 
 .achievement-badge {
-  background: var(--gradient-accent);
+  background: #FFF200;
   color: var(--f1-black);
   padding: 0.5rem 1rem;
   border-radius: 20px;
@@ -1938,7 +1969,7 @@ section {
 }
 
 .role-badge {
-  background: var(--gradient-accent);
+  background: #FFF200;
   color: var(--f1-black);
   padding: 0.25rem 0.75rem;
   border-radius: 15px;
@@ -2653,7 +2684,7 @@ body.dark-mode .footer-social-icon:hover {
 }
 
 body.dark-mode .navbar {
-  background: rgba(15, 15, 15, 0.95);
+  background: #000000;
   border-bottom: 1px solid #404040;
 }
 
@@ -2907,7 +2938,7 @@ body.dark-mode .footer-shape-2 {
   margin-top: 0.2rem;
   font-size: 1.08rem;
   font-weight: 500;
-  color: var(--f1-gold);
+  color: #FFF200;
   text-align: center;
   letter-spacing: 0.01em;
   text-shadow: 0 2px 8px rgba(30,30,30,0.10);
@@ -3145,4 +3176,61 @@ body.dark-mode .footer-shape-2 {
   display: block;
   margin: 0 auto;
   user-select: none;
+}
+
+.about-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 0;
+  pointer-events: none;
+  background:
+    linear-gradient(135deg, rgba(225, 6, 0, 0.04) 0%, rgba(255, 215, 0, 0.04) 50%, rgba(30, 30, 30, 0.04) 100%),
+    radial-gradient(circle at 20% 80%, rgba(225, 6, 0, 0.07) 0%, transparent 50%),
+    radial-gradient(circle at 80% 20%, rgba(255, 215, 0, 0.07) 0%, transparent 50%),
+    radial-gradient(circle at 50% 50%, rgba(255, 107, 53, 0.03) 0%, transparent 60%);
+}
+
+.about-background::before, .about-background::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 2px;
+  border-radius: 2px;
+  opacity: 0.18;
+  pointer-events: none;
+}
+
+.about-background::before {
+  top: 30%;
+  background: linear-gradient(90deg, var(--f1-red), var(--f1-gold), var(--f1-orange));
+  width: 100%;
+  filter: blur(1px);
+}
+
+.about-background::after {
+  top: 65%;
+  background: linear-gradient(90deg, var(--f1-black), var(--f1-red), var(--f1-gold));
+  width: 80%;
+  left: 10%;
+  filter: blur(1.5px);
+}
+
+body.dark-mode .about-background {
+  background:
+    linear-gradient(135deg, rgba(30, 30, 30, 0.12) 0%, rgba(225, 6, 0, 0.08) 100%),
+    radial-gradient(circle at 20% 80%, rgba(225, 6, 0, 0.12) 0%, transparent 50%),
+    radial-gradient(circle at 80% 20%, rgba(255, 215, 0, 0.10) 0%, transparent 50%),
+    radial-gradient(circle at 50% 50%, rgba(255, 107, 53, 0.07) 0%, transparent 60%);
+}
+
+.text-muted {
+  color: #6c757d !important;
+}
+
+body.dark-mode .text-muted {
+  color: #e0e0e0 !important;
 }

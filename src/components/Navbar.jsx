@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 
-export default function Navbar({ darkMode, setDarkMode }) {
+export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
@@ -85,21 +85,6 @@ export default function Navbar({ darkMode, setDarkMode }) {
                 </a>
               </motion.li>
             ))}
-            
-            <motion.li
-              className="nav-item ms-lg-3"
-              initial={{ opacity: 0, y: -20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.6 }}
-            >
-              <button
-                className="btn btn-outline btn-sm"
-                onClick={() => setDarkMode(!darkMode)}
-                aria-label="Toggle dark mode"
-              >
-                {darkMode ? "☀️" : "🌙"}
-              </button>
-            </motion.li>
           </ul>
         </div>
       </div>
