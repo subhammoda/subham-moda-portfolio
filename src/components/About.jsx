@@ -28,7 +28,7 @@ export default function About() {
         viewport={{ once: true }}
         className="section-title"
       >
-        <h2>🏁 Driver Profile</h2>
+        <h2 style={{ color: '#F47600' }}>🏁 Driver Profile</h2>
         <p className="text-muted mt-3">Meet the Data Engineer with F1-Level Precision</p>
       </motion.div>
 
@@ -44,26 +44,22 @@ export default function About() {
             <div className="about-content">
               <div className="about-description-section">
                 <p className="about-description">
-                  I'm a passionate Data Engineer and Data Scientist who approaches data challenges with the precision and speed of an F1 driver. 
-                  Just like a racing team optimizes every component for maximum performance, I design data solutions that deliver 
-                  championship-winning results with cutting-edge technologies.
+                I'm a data engineer and data scientist who builds fast, reliable, and scalable data systems—approaching every problem with the precision and efficiency of an F1 race team. Just as every millisecond counts on the track, every decision in business should be backed by clean, timely, and trusted data.
                 </p>
                 
                 <p className="about-description">
-                  My expertise spans the entire data pipeline - from raw data ingestion to real-time analytics dashboards. 
-                  I've successfully implemented data-driven solutions using technologies like Apache Airflow, Google Cloud Platform, 
-                  AWS, and visualization tools like Tableau and Looker, always pushing the limits of what's possible.
+                My experience spans the full data stack: from real-time ingestion and processing to analytics-ready models and self-serve dashboards. I've delivered production-grade solutions using technologies like Apache Airflow, Kafka, dbt, GCP, AWS, Snowflake, and BI tools like Looker and Tableau—helping teams move from raw data to race-winning insights.
                 </p>
               </div>
               
-              <div className="about-highlights" style={{ maxWidth: '900px', margin: '0 auto' }}>
+              <div className="about-highlights" style={{ maxWidth: '1200px', margin: '0 auto' }}>
                 <div className="row">
                   <div className="col-lg-6 col-md-6 mb-3 d-flex justify-content-center">
                     <div className="highlight-item text-center w-100">
                       <div className="highlight-icon text-center">🏁</div>
                       <div className="highlight-text text-center">
                         <strong className="text-center">Pole Position Performance</strong>
-                        <p className="text-center">Deliver data solutions with F1-level precision and speed</p>
+                        <p className="text-center">Deliver data solutions with F1-level accuracy, agility, and technical depth—built for production, not prototypes</p>
                       </div>
                     </div>
                   </div>
@@ -72,7 +68,7 @@ export default function About() {
                       <div className="highlight-icon text-center">⚡</div>
                       <div className="highlight-text text-center">
                         <strong className="text-center">Lightning Fast Pipelines</strong>
-                        <p className="text-center">Build high-performance data infrastructure that scales</p>
+                        <p className="text-center">Build real-time and batch pipelines with Apache Airflow, Kafka, and Spark—designed to scale cleanly under load</p>
                       </div>
                     </div>
                   </div>
@@ -81,7 +77,7 @@ export default function About() {
                       <div className="highlight-icon text-center">🏆</div>
                       <div className="highlight-text text-center">
                         <strong className="text-center">Championship Results</strong>
-                        <p className="text-center">Transform complex data into winning insights</p>
+                        <p className="text-center">Translate complex data into insights that drive business decisions—fueling everything from forecasts to dashboards</p>
                       </div>
                     </div>
                   </div>
@@ -90,7 +86,7 @@ export default function About() {
                       <div className="highlight-icon text-center">🎯</div>
                       <div className="highlight-text text-center">
                         <strong className="text-center">Data Quality Focus</strong>
-                        <p className="text-center">Ensure 99.5% accuracy in all data operations</p>
+                        <p className="text-center">Implement data contracts, validations, and observability to maintain 99.5%+ data integrity at every stage</p>
                       </div>
                     </div>
                   </div>
