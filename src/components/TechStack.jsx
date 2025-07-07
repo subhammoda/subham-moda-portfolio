@@ -35,7 +35,7 @@ export default function TechStack() {
         viewport={{ once: true }}
         className="section-title"
       >
-        <h2>🏁 Technical Arsenal</h2>
+        <h2>🛠️ Technical Arsenal</h2>
         <p className="text-muted mt-3">My Championship-Winning Toolkit</p>
       </motion.div>
 
