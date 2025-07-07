@@ -30,7 +30,7 @@ export default function Education() {
         viewport={{ once: true }}
         className="section-title"
       >
-        <h2>🏎️ Racing Academy</h2>
+        <h2>🏫 Racing Academy</h2>
       </motion.div>
 
       <div className="education-timeline-horizontal">
