@@ -15,7 +15,7 @@ export default function Experience() {
         '⚡ Achieved 83% accuracy in entity extraction by leveraging transformer models and domain-tuned preprocessing logic',
         '🏆 Enabled near real-time access to structured medical data for analytics and automation teams through API-driven integration'
       ],
-      icon: '🏥',
+      icon: 'https://cdn.brandfetch.io/idmSBy7FTI/w/1188/h/1188/theme/dark/icon.jpeg?c=1bxid64Mup7aczewSAYMX&t=1747627680639',
       teamRole: 'Pit Crew Lead'
     },
     {
@@ -30,7 +30,7 @@ export default function Experience() {
         '⚡ Automated secure ingestion of cross-project data with Cloud Data Fusion and BigQuery Authorized Views, replacing manual transfer processes across 150+ datasets', 
         '🏁 Delivered 30+ Looker/Tableau dashboards across 150+ KPIs by partnering with product, ops, and analytics teams—replacing 200+ monthly ad-hoc pulls with scalable, self-serve insights'
       ],
-      icon: '🏎️',
+      icon: 'https://cdn.builtin.com/cdn-cgi/image/f=auto,fit=contain,w=200,h=200,q=100/sites/www.builtin.com/files/2022-07/1654062078700_29.jpg',
       teamRole: 'Race Engineer'
     }
   ].sort((a, b) => {
@@ -62,7 +62,7 @@ export default function Experience() {
         viewport={{ once: true }}
         className="section-title"
       >
-        <h2>🏁 Race History</h2>
+        <h2>🏎️ Race History</h2>
       </motion.div>
 
       <div className="experience-timeline-horizontal">
@@ -80,7 +80,11 @@ export default function Experience() {
             <div className="experience-card card">
               <div className="experience-header">
                 <div className="experience-icon">
-                  <span className="icon-emoji">{exp.icon}</span>
+                  {exp.icon.startsWith('http') ? (
+                    <img src={exp.icon} alt={exp.company + ' logo'} style={{ width: 48, height: 48, borderRadius: '50%' }} />
+                  ) : (
+                    <span className="icon-emoji">{exp.icon}</span>
+                  )}
                 </div>
                 <div className="experience-info">
                   <h4 className="experience-title">{exp.title}</h4>
