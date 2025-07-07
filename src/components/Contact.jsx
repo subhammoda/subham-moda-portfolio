@@ -63,7 +63,7 @@ export default function Contact() {
       color: '#333'
     },
     {
-      name: 'Twitter',
+      name: 'X',
       icon: 'https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/x.svg',
       url: 'https://x.com/modasubham',
       color: '#1a1a1a'
@@ -79,23 +79,21 @@ export default function Contact() {
         viewport={{ once: true }}
         className="section-title"
       >
-        <h2>🏁 Pit Lane Access</h2>
+        <h2>📞 Pit Lane Access</h2>
       </motion.div>
 
-      <div className="row" style={{ display: 'flex', alignItems: 'stretch' }}>
+      <div className="row justify-content-center">
         <motion.div
-          initial={{ opacity: 0, x: -50 }}
-          whileInView={{ opacity: 1, x: 0 }}
+          initial={{ opacity: 0, y: 50 }}
+          whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.2 }}
           viewport={{ once: true }}
-          className="col-lg-6 mb-4"
-          style={{ display: 'flex' }}
+          className="col-lg-8 col-md-10 col-sm-12 mb-4"
         >
           <div className="card" style={{ width: '100%', display: 'flex', flexDirection: 'column' }}>
-            <h4 className="mb-4">🏎️ Let's Connect</h4>
+            <h4 className="mb-4">📲 Let's Connect</h4>
             <p className="contact-intro mb-4">
-              Ready to join the championship team? I'm always interested in new opportunities and collaborations. 
-              Whether you have a question or just want to discuss data engineering or talk about F1, feel free to reach out!
+              Ready to join the championship team? I'm always interested in new opportunities and collaborations. Whether you have a question or just want to discuss data engineering or talk about F1, feel free to reach out!
             </p>
             
             <div className="contact-info">
@@ -123,7 +121,7 @@ export default function Contact() {
               ))}
             </div>
 
-            <div className="social-links" style={{ marginTop: 'auto' }}>
+            <div className="social-links" style={{ marginTop: '2rem' }}>
               <h6 className="mb-3">🏆 Follow the Championship</h6>
               <div className="social-icons">
                 {socialLinks.map((social, index) => (
@@ -146,82 +144,6 @@ export default function Contact() {
                 ))}
               </div>
             </div>
-          </div>
-        </motion.div>
-
-        <motion.div
-          initial={{ opacity: 0, x: 50 }}
-          whileInView={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.8, delay: 0.4 }}
-          viewport={{ once: true }}
-          className="col-lg-6"
-          style={{ display: 'flex' }}
-        >
-          <div className="card" style={{ width: '100%', display: 'flex', flexDirection: 'column' }}>
-            <h4 className="mb-4">🏁 Send Team Radio</h4>
-            <form onSubmit={handleSubmit} className="contact-form">
-              <div className="form-group mb-3">
-                <label htmlFor="name" className="form-label">Driver Name</label>
-                <input
-                  type="text"
-                  id="name"
-                  name="name"
-                  value={formData.name}
-                  onChange={handleChange}
-                  className="form-control"
-                  required
-                />
-              </div>
-              
-              <div className="form-group mb-3">
-                <label htmlFor="email" className="form-label">Team Email</label>
-                <input
-                  type="email"
-                  id="email"
-                  name="email"
-                  value={formData.email}
-                  onChange={handleChange}
-                  className="form-control"
-                  required
-                />
-              </div>
-              
-              <div className="form-group mb-3">
-                <label htmlFor="subject" className="form-label">Race Strategy</label>
-                <input
-                  type="text"
-                  id="subject"
-                  name="subject"
-                  value={formData.subject}
-                  onChange={handleChange}
-                  className="form-control"
-                  required
-                />
-              </div>
-              
-              <div className="form-group mb-4">
-                <label htmlFor="message" className="form-label">Pit Wall Message</label>
-                <textarea
-                  id="message"
-                  name="message"
-                  value={formData.message}
-                  onChange={handleChange}
-                  className="form-control"
-                  rows="5"
-                  required
-                ></textarea>
-              </div>
-              
-              <motion.button
-                type="submit"
-                className="btn btn-primary w-100"
-                disabled={isSubmitting}
-                whileHover={{ scale: 1.02 }}
-                whileTap={{ scale: 0.98 }}
-              >
-                {isSubmitting ? '🏁 Sending...' : '🏎️ Send Message'}
-              </motion.button>
-            </form>
           </div>
         </motion.div>
       </div>
