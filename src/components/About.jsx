@@ -28,7 +28,7 @@ export default function About() {
         viewport={{ once: true }}
         className="section-title"
       >
-        <h2 style={{ color: '#F47600' }}>🏁 Driver Profile</h2>
+        <h2 style={{ color: '#F47600' }}>👤 Driver Profile</h2>
         <p className="text-muted mt-3">Meet the Data Engineer with F1-Level Precision</p>
       </motion.div>
 
