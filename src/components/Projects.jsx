@@ -19,7 +19,7 @@ const Projects = () => {
     {
       id: 1,
       title: "Story Bot ELI5",
-      image: "🧠",
+      image: `${import.meta.env.BASE_URL}story-bot-ELI5.png`,
       icon: "🧠",
       category: "AI | ML",
       description: "Built an interactive chatbot that takes complex user-defined topics and returns simplified, story-based explanations suitable for a 5-year-old. Integrated multi-agent architecture using CrewAI to orchestrate topic research, summarization, and storytelling.",
@@ -35,7 +35,7 @@ const Projects = () => {
     {
       id: 2,
       title: "Stock Analysis Package",
-      image: "📈",
+      image: `${import.meta.env.BASE_URL}StockAnalysisPackage.png`,
       icon: "📈",
       category: "Data Analysis | Finance",
       description: "Created a Python package for end-to-end stock performance analysis. Automates data fetching, calculates financial indicators, and visualizes trends to assist in portfolio evaluation and decision-making.",
@@ -51,7 +51,7 @@ const Projects = () => {
     {
       id: 3,
       title: "Olist Data Pipeline",
-      image: "🚚",
+      image: `${import.meta.env.BASE_URL}olist-data-pipeline.png`,
       icon: "🚚",
       category: "Data Engineering | ETL",
       description: "Built an end-to-end ETL pipeline to process the Olist Brazilian e-commerce dataset. The project performs data ingestion, transformation, and modeling to enable reporting on customer behavior, delivery performance, and order trends.",
@@ -68,7 +68,7 @@ const Projects = () => {
     {
       id: 4,
       title: "Yelp Reviews Analysis",
-      image: "🍽️",
+      image: `${import.meta.env.BASE_URL}yelp-reviews-analysis.png`,
       icon: "🍽️",
       category: "Data Analysis | NLP",
       description: "Developed an end-to-end pipeline to analyze sentiment trends across millions of customer reviews from the Yelp Open Dataset. Leveraged Snowflake for data storage and processing, and applied Python-based sentiment analysis directly within the data warehouse to deliver business-ready insights.",
@@ -84,7 +84,7 @@ const Projects = () => {
     {
       id: 5,
       title: "IMDb User Reviews Scraper",
-      image: "🎥",
+      image: `${import.meta.env.BASE_URL}imdb-user-reviews-scraper.png`,
       icon: "🎥",
       category: "Web Scraping",
       description: "Built a scalable web scraper to extract user reviews from IMDb movie pages. Enables downstream sentiment and opinion analysis by collecting high-volume audience feedback, structured and saved for further NLP tasks.",
@@ -101,7 +101,7 @@ const Projects = () => {
     {
       id: 6,
       title: "Movie Review Sentiment Analysis",
-      image: "💬",
+      image: `${import.meta.env.BASE_URL}movie-review-sentimental-analysis.png`,
       icon: "💬",
       category: "Sentiment Analysis | NLP",
       description: "Performed sentiment analysis on IMDb user reviews to assess public opinion on movies. Applied NLP techniques to classify reviews as positive or negative, and visualized sentiment trends to support audience perception analysis.",
@@ -118,7 +118,7 @@ const Projects = () => {
     {
       id: 7,
       title: "Personal Portfolio Website",
-      image: "🌐",
+      image: `${import.meta.env.BASE_URL}subham-moda-portfolio.png`,
       icon: "🌐",
       category: "Web Development | Personal Branding",
       description: "Designed and built a sleek, responsive portfolio to showcase my professional background in data engineering, data science, and AI. Developed using React and  PostCSS with the help of Cursor, an AI coding assistant that accelerated layout prototyping, component structuring, and Tailwind styling decisions.",
@@ -131,6 +131,23 @@ const Projects = () => {
       ],
       technologies: ["React", "PostCSS", "Tailwind CSS", "Vite", "Cursor", "CI/CD", "gh-pages"],
       github: "https://github.com/subhammoda/subham-moda-portfolio"
+    },
+    {
+      id: 8,
+      title: "Netflix Data Visualization",
+      image: `${import.meta.env.BASE_URL}NetflixVisualization.png`,
+      icon: "📺",
+      category: "Data Visualization | Tableau",
+      description: "Performed exploratory data analysis and developed a Tableau dashboard to visualize global trends in Netflix content. The project identifies patterns in movie and TV show releases, content types, genres, and country-wise production volumes to uncover strategic streaming insights.",
+      features: [
+        "Cleaned and explored Netflix's content catalog by genre, type, release date, and country",
+        "Visualized Netflix's country wise content distribution and localization trends",
+        "Compared frequency of genres and content split between movies and TV shows",
+        "Performed Temporal Analysis to understand how content releases have evolved over the years",
+        "Combined Python-based EDA with BI tools to create an end-to-end analytical pipeline"
+      ],
+      technologies: ["Tableau", "Data Analysis"],
+      github: "https://github.com/subhammoda/NetflixVisualization"
     }
   ];
 
@@ -223,7 +240,20 @@ const Projects = () => {
                       <div className="project-card card h-100" onClick={() => openModal(project)}>
                         <div className="project-image-container">
                           <div className="project-image">
-                            <span className="project-image-emoji">{project.image}</span>
+                            {project.image.startsWith('http') || project.image.includes('.') ? (
+                              <img 
+                                src={project.image} 
+                                alt={project.title}
+                                className="project-image-file"
+                                onError={(e) => {
+                                  e.target.style.display = 'none';
+                                  e.target.nextSibling.style.display = 'inline';
+                                }}
+                              />
+                            ) : null}
+                            <span className="project-image-emoji" style={project.image.startsWith('http') || project.image.includes('.') ? { display: 'none' } : {}}>
+                              {project.image}
+                            </span>
                           </div>
                         </div>
                         <div className="project-card-content">
