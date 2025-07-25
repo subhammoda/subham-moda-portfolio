@@ -148,6 +148,101 @@ const Projects = () => {
       ],
       technologies: ["Tableau", "Data Analysis"],
       github: "https://github.com/subhammoda/NetflixVisualization"
+    },
+    {
+      id: 9,
+      title: "Natural Language Analytics Dashboard",
+      image: `${import.meta.env.BASE_URL}natural-language-analytics-dashboard.png`,
+      icon: "📊",
+      category: "Data Visualization | LLM Applications",
+      description: "Built an LLM-powered analytics dashboard that enables non-technical users to generate charts and insights from structured data using natural language prompts. The tool accepts CSV/Excel uploads, interprets the user's intent, and returns visualizations and summaries, dramatically reducing the time required for analysis.",
+      features: [
+        "Accepts human language queries like “Show total sales by region” to generate relevant plots",
+        "Uses Gemini API to interpret user prompts and generate visualizations",
+        "Provides interactive charts and summaries for easy data exploration",
+        "Empowers non-technical stakeholders to perform data exploration without coding",
+        "Reduces visualization time from ~10 minutes to under 10 seconds per query"
+      ],
+      technologies: ["Python", "Streamlit", "Pandas", "Plotly", "Google Gemini API"],
+      github: "https://github.com/subhammoda/natural-language-analytics-dashboard"
+    },
+    {
+      id: 10,
+      title: "ML Analysis Tool",
+      image: `${import.meta.env.BASE_URL}ml-analysis-tool.png`,
+      icon: "🤖",
+      category: "Machine Learning | LLM Applications",
+      description: "Built an interactive machine learning assistant that automates model training and provides LLM-generated recommendations. Users upload a dataset, select the target column, and the tool handles preprocessing, model selection, evaluation, and returns tailored advice for improvement using Gemini.",
+      features: [
+        "Automatically detects whether the task is classification or regression and trains multiple models", 
+        "Compares performance metrics and surfaces the best model with accuracy, confusion matrix, etc.",
+        "Sends dataset metadata and model summary to Gemini LLM for feedback",
+        "LLM provides tailored suggestions for improving model performance, feature engineering, and data collection"
+      ],
+      technologies: ["Python", "Scikit-learn", "Pandas", "Streamlit", "Gemini API (LLM)", "Matplotlib", "Plotly"],
+      github: "https://github.com/subhammoda/ml-analysis-tool"
+    },
+    {
+      id: 11,
+      title: "Story Bot ELI5 - Langchain",
+      image: `${import.meta.env.BASE_URL}story-bot-ELI5-langchain.png`,
+      icon: "🧠",
+      category: "AI | ML | Langchain",
+      description: "Developed an intelligent storytelling bot that simplifies complex topics into engaging, age-appropriate stories. Leveraging LangChain and multi-agent architecture, the system automates topic research, summarization, and story generation using Gemini LLM. The app supports adjustable age targeting and a language simplicity toggle for wider accessibility.",
+      features: [
+        "Combines LangChain's retrieval and prompt templating with Gemini's LLM to generate topic-specific explanations",
+        "Dynamically adapts tone and vocabulary based on selected age group",
+        "Allows users to choose between standard or extra-simplified storytelling modes"
+      ],
+      technologies: ["Python", "LangChain", "Gemini API (LLM)", "Streamlit"],
+      github: "https://github.com/subhammoda/story-bot-ELI5-Langchain"
+    },
+    {
+      id: 12,
+      title: "Electricity Production Time Series Analysis",
+      image: `${import.meta.env.BASE_URL}ElectricityProductionTimeSeries.png`,
+      icon: "⚡",
+      category: "Time Series Analysis | Forecasting",
+      description: "Built a time series forecasting model to predict future electricity production in the U.S. using historical data. Applied ARIMA and seasonal decomposition techniques in R to model trend and seasonality, with accurate multi-year forecasts and performance evaluation.",
+      features: [
+        "Implemented SARIMA models to capture seasonality, trend, and noise",
+        "Used additive and logarithmic decomposition to analyze seasonal trend, and residual components",
+        "Produced line charts and confidence intervals using ggplot2 for visual storytelling",
+        "Predicted an 8% increase in electricity production"
+      ],
+      technologies: ["R", "SARIMA","forecast", "tseries", "ggplot2"],
+      github: "https://github.com/subhammoda/ElectricityProductionTimeSeries"
+    },
+    {
+      id: 13,
+      title: "Car Sales Time Series Forecasting",
+      image: `${import.meta.env.BASE_URL}CarSalesTimeSeries.png`,
+      icon: "🚗",
+      category: "R | Forecasting",
+      description: "Built a time series forecasting model to predict monthly U.S. car sales using classical statistical methods. Applied the Box-Jenkins methodology for model selection and validation, enabling accurate forecasts with interpretable seasonal and trend components.",
+      features: [
+        "Followed the Box-Jenkins iterative cycle: stationarity, model estimation, parameter redundancy, parameter estimation, residual analysis, and forecasting",
+        "Conducted Augmented Dickey-Fuller test and used differencing for non-stationary series",
+        "Evaluated residuals, AIC, and BIC to validate forecast quality"
+      ],
+      technologies: ["R", "ARIMA", "forecast", "tseries", "ggplot2"],
+      github: "https://github.com/subhammoda/CarSalesTimeSeries"
+    },
+    {
+      id: 14,
+      title: "Automobile Price Prediction using Statistical Methods",
+      image: `${import.meta.env.BASE_URL}AutomobilePricePrediction.png`,
+      icon: "🚙",
+      category: "Statistical Analysis | Regression",
+      description: "A comprehensive statistical modeling project designed to predict automobile prices using the 1985 Ward's Automotive dataset. This project combines classical statistical tests with advanced regression and regularization techniques to uncover insights and build predictive models. Emphasis was placed on applying concepts learned in the Statistical Methods course.",
+      features: [
+        "Statistical analysis: Shapiro-Wilk test and multivariate normality, Z-test, ANOVA, Chi-Square test, Krushal-Wallis test",
+        "Regression Techniques Implemented: Linear Regression with full feature set, Forward and Backward Feature Selection, Ridge Regression for multicollinearity control, Polynomial Regression to explore non-linearity, Principal Component Regression for dimensionality reduction",
+        "Model Evaluation: R-squared, RMSE, MAPE",
+        "Identified best model as Foraward-selected Linear Regression with 15 features"
+      ],
+      technologies: ["Python", "plotly", "scikit-learn", "pandas", "numpy", "stats"],
+      github: "https://github.com/subhammoda/AutomobilePricePrediction"
     }
   ];
 
