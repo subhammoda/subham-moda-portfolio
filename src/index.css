@@ -3969,7 +3969,7 @@ footer {
 }
 
 .modal-project-features .feature-item::before {
-  content: '🏁';
+  content: '👉';
   position: absolute;
   left: 0;
   top: 0.5rem;

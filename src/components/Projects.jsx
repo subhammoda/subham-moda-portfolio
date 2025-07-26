@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import 'keen-slider/keen-slider.min.css';
+import { useKeenSlider } from 'keen-slider/react';
 
 const Projects = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -301,6 +303,53 @@ const Projects = () => {
     return () => window.removeEventListener('resize', handleResize);
   }, []);
 
+  function ContinuousAutoplay(
+    slider,
+    {
+      speed = 0.0015,
+      pauseOnHoverSelector = ".keen-slider",
+      pauseOnClickSelector = ".keen-slider",
+    } = {}
+  ) {
+    let rafId;
+    let currentTranslate = 0;
+    let paused = false;
+  
+    const animate = () => {
+      if (!paused) {
+        currentTranslate += speed;
+        slider.track.to(currentTranslate);
+      }
+      rafId = requestAnimationFrame(animate);
+    };
+  
+    slider.on("created", () => {
+      animate();
+  
+      // Pause on hover
+      if (pauseOnHoverSelector) {
+        const hoverEl = document.querySelector(pauseOnHoverSelector);
+        if (hoverEl) {
+          hoverEl.addEventListener("mouseenter", () => (paused = true));
+          hoverEl.addEventListener("mouseleave", () => (paused = false));
+        }
+      }
+  
+      // Pause on click
+      if (pauseOnClickSelector) {
+        const clickEl = document.querySelector(pauseOnClickSelector);
+        if (clickEl) {
+          clickEl.addEventListener("mousedown", () => (paused = true));
+          clickEl.addEventListener("mouseup", () => (paused = false));
+        }
+      }
+    });
+  
+    slider.on("destroyed", () => {
+      cancelAnimationFrame(rafId);
+    });
+  }
+  
   const visibleProjects =
     currentIndex + cardsToShow <= projects.length
       ? projects.slice(currentIndex, currentIndex + cardsToShow)
@@ -309,93 +358,27 @@ const Projects = () => {
           ...projects.slice(0, (currentIndex + cardsToShow) % projects.length),
         ];
 
+  // Keen-slider setup for infinite carousel
+  const [sliderRef] = useKeenSlider({
+    loop: true,
+    mode: "free",
+    renderMode: "performance",
+    slides: { perView: 3, spacing: 32 },
+    breakpoints: {
+      '(max-width: 1200px)': { perView: 1.2, spacing: 0 },
+      '(max-width: 768px)': { perView: 1.05, spacing: 0 },
+    },
+    drag: true,
+    centered: true,
+  },
+  [ContinuousAutoplay]
+  );
+
   return (
     <section id="projects" className="py-5">
       <div className="container">
         <div className="section-title text-center mb-5">
           <h2>🏁 Project Portfolio</h2>
-        </div>
-
-        <div className="projects-carousel-container">
-          <div className="projects-carousel-wrapper">
-            <div className="project-card-container">
-              <AnimatePresence initial={false} custom={direction} mode="wait">
-                <motion.div
-                  key={currentIndex}
-                  className="project-cards-grid"
-                  custom={direction}
-                  initial={{ x: direction === 1 ? 300 : -300, opacity: 0 }}
-                  animate={{ x: 0, opacity: 1 }}
-                  exit={{ x: direction === 1 ? -300 : 300, opacity: 0 }}
-                  transition={{ duration: 0.5, type: 'tween' }}
-                  style={{ display: 'grid', gridTemplateColumns: `repeat(${cardsToShow}, 1fr)`, gap: '2rem', width: '100%' }}
-                >
-                  {visibleProjects.map((project) => (
-                    <div key={project.id} className="project-card-wrapper">
-                      <div className="project-card card h-100" onClick={() => openModal(project)}>
-                        <div className="project-image-container">
-                          <div className="project-image">
-                            {project.image.startsWith('http') || project.image.includes('.') ? (
-                              <img 
-                                src={project.image} 
-                                alt={project.title}
-                                className="project-image-file"
-                                onError={(e) => {
-                                  e.target.style.display = 'none';
-                                  e.target.nextSibling.style.display = 'inline';
-                                }}
-                              />
-                            ) : null}
-                            <span className="project-image-emoji" style={project.image.startsWith('http') || project.image.includes('.') ? { display: 'none' } : {}}>
-                              {project.image}
-                            </span>
-                          </div>
-                        </div>
-                        <div className="project-card-content">
-                          <h4 className="project-title">{project.title}</h4>
-                          <div className="project-category">
-                            <span className="category-badge">{project.category}</span>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  ))}
-                </motion.div>
-              </AnimatePresence>
-            </div>
-
-            {projects.length > cardsToShow && (
-              <>
-                <button 
-                  className="carousel-arrow carousel-arrow-left" 
-                  onClick={prevSlide}
-                  aria-label="Previous project"
-                >
-                  ‹
-                </button>
-                <button 
-                  className="carousel-arrow carousel-arrow-right" 
-                  onClick={nextSlide}
-                  aria-label="Next project"
-                >
-                  ›
-                </button>
-              </>
-            )}
-          </div>
-
-          {projects.length > cardsToShow && (
-            <div className="project-indicators">
-              {Array.from({ length: Math.ceil(projects.length / cardsToShow) }, (_, i) => (
-                <button
-                  key={i}
-                  className={`project-indicator ${Math.floor(currentIndex / cardsToShow) === i ? 'active' : ''}`}
-                  onClick={() => goToSlide(i * cardsToShow)}
-                  aria-label={`Go to slide ${i + 1}`}
-                />
-              ))}
-            </div>
-          )}
         </div>
 
         {/* Project Modal */}
@@ -455,6 +438,29 @@ const Projects = () => {
             </div>
           </div>
         )}
+
+        {/* Infinite Project Carousel (images + titles only) */}
+        <div style={{
+          width: '100vw',
+          position: 'relative',
+          left: '50%',
+          right: '50%',
+          marginLeft: '-50vw',
+          marginRight: '-50vw',
+          padding: '3rem 0',
+          background: 'transparent',
+          boxSizing: 'border-box',
+        }}>
+          <div ref={sliderRef} className="keen-slider" id="project-carousel" style={{ width: '100%', boxSizing: 'border-box' }}>
+            {projects.map((project, idx) => (
+              <div className="keen-slider__slide" key={project.id} style={{ padding: 0, textAlign: 'center', cursor: 'pointer' }} onClick={() => openModal(project)}>
+                <img src={project.image} alt={project.title} style={{ width: '100%', maxWidth: 480, objectFit: 'cover', borderRadius: 12, boxShadow: '0 2px 8px rgba(0,0,0,0.08)', display: 'block' }} />
+                <div style={{ marginTop: 12, fontWeight: 600, fontSize: 18 }}>{project.title}</div>
+              </div>
+            ))}
+          </div>
+        </div>
+        {/* End Infinite Project Carousel */}
       </div>
     </section>
   );
