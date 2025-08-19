@@ -8,6 +8,22 @@ export default function Hero() {
     }
   };
 
+  const downloadResume = () => {
+    // Replace this URL with your actual Google Drive PDF link
+    const resumeUrl = "https://drive.google.com/file/d/1gPgx6EXHAfmocN3vSLg76FqiueNsCHc3/view?usp=drive_link";
+    
+    // Create a temporary link element
+    const link = document.createElement('a');
+    link.href = resumeUrl;
+    link.download = "Subham_Moda_Resume.pdf";
+    link.target = "_blank";
+    
+    // Append to body, click, and remove
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  };
+
   return (
     <section className="hero-section">
       {/* F1 Car Background */}
@@ -175,10 +191,16 @@ export default function Hero() {
                   🏎️ Start the Engine
                 </button>
                 <button 
-                  className="btn btn-outline mb-3"
+                  className="btn btn-outline me-3 mb-3"
                   onClick={() => scrollToSection('projects')}
                 >
                   🏆 View Podium Finishes
+                </button>
+                <button 
+                  className="btn btn-resume mb-3"
+                  onClick={downloadResume}
+                >
+                  📄 Resume
                 </button>
               </motion.div>
               
