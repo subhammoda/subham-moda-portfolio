@@ -208,6 +208,20 @@ section {
   transform: translateY(-2px);
 }
 
+.btn-resume {
+  background: transparent;
+  border: 2px solid var(--f1-yellow);
+  color: var(--f1-yellow);
+}
+
+.btn-resume:hover {
+  background: linear-gradient(135deg, #ffd700 0%, var(--f1-gold) 100%);
+  color: var(--f1-black);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-lg);
+  border-color: #ffd700;
+}
+
 /* Animations */
 @keyframes fadeInUp {
   from {
