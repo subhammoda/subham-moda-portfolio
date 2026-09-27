@@ -4,6 +4,21 @@ export default function Experience() {
   // Sort by period ascending (oldest first, using the start year)
   const experienceData = [
     {
+      title: 'Data Engineer',
+      company: 'Lixil',
+      period: 'Jan 2026 - Present',
+      location: 'Mumbai, India',
+      description: 'Engineered scalable data solutions on Google Cloud to unify sales, delivery, and logistics data for freight cost analytics. Modernized legacy reporting workflows by migrating Microsoft Access processes to BigQuery, improving scalability, data accessibility, and analytical reliability.',
+      technologies: ['Python', 'SQL', 'BigQuery', 'SAP', 'Google Cloud', 'Data Engineering'],
+      achievements: [
+        '🏁 Architected a freight cost analytics data model integrating sales, delivery, and logistics datasets to enable SKU- and shipment-level cost attribution, uncovering approximately $500K in annual logistics optimization opportunities',
+        '⚡ Modernized legacy Microsoft Access reporting workflows by migrating them to BigQuery, redesigning data models, replicating business transformations, and implementing data quality validation',
+        '🏆 Centralized operational data in BigQuery to enable scalable analytics and more granular visibility into logistics and freight costs'
+      ],
+      icon: 'https://cdn.brandfetch.io/idVGFBKrCv/w/400/h/400/theme/dark/icon.jpeg?c=1dxbfHSJFAPEGdCLU4o5B',
+      teamRole: 'Pit Crew Lead'
+    },
+    {
       title: 'Data Scientist Intern',
       company: 'ResMed',
       period: 'June 2023 - Aug 2023',

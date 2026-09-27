@@ -17,7 +17,7 @@ export default function Education() {
       year: '2020',
       location: 'Mumbai, India', 
       gpa: '3.5/4.0',
-      icon: 'https://cdn.brandfetch.io/idRQ5xiBH6/w/400/h/400/theme/dark/icon.jpeg?c=1bxid64Mup7aczewSAYMX&t=1747800992546',
+      icon: 'https://cdn.brandfetch.io/idNG08e9wM/w/400/h/400/theme/dark/icon.jpeg?c=1dxbfHSJFAPEGdCLU4o5B',
     }
   ].sort((a, b) => a.year.localeCompare(b.year));
 

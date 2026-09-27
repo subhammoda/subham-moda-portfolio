@@ -39,12 +39,12 @@ export default function Contact() {
     {
       icon: '📱',
       title: 'Pit Wall',
-      link: 'tel:+15513445739'
+      link: 'tel:+919820228013'
     },
     {
       icon: '📍',
       title: 'Home Circuit',
-      value: 'United States',
+      value: 'India',
       link: null
     }
   ];
